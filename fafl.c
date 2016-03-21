@@ -1,14 +1,15 @@
 /*
 Program that checks if state transition table is proper for input string
 DFA Checker v1.0, coded by the man himself, Sriram Ramaswamy
-March 19, 2016, 7:17 PM
+March 20, 2016, 8:18 PM
+Update: Removed iscorr flag and made the output depend directly on the finality of the current state
 */
 #include <stdio.h>
 #include <stdlib.h>
 
 void main()
 {
-	int table[20][20], n, r, init, final[20], iscorr, i, j, currstate;
+	int table[20][20], n, r, init, final[20], i, j, currstate;
 	char string[50], chartable[20], current, flag;
 	printf ("\nEnter the number of states\t");
 	scanf ("%d", &n);
@@ -21,7 +22,7 @@ void main()
 	 Alright. A small backstory.
 	 I tried another approach to the below code, where before starting the state transition table for a certain row, the program would ask if the selected state was
 	 the final, and then ask D(state, letter) each time before input, but figured that was too slow and tedious.
-	 The user would have written the table down somewhere already, so let him/her input as a table!
+	 The user would have written the table down somewhere already, so let him/her input a table!
 	 */
 	printf ("\nEnter array of finality: 1 for final state and 0 otherwise\n");
 	for (i=0;i<n;i++)
@@ -56,12 +57,8 @@ void main()
 				break;
 			}
 			currstate = table[currstate][j];
-			if (final[currstate])
-				iscorr=1;
-			else
-				iscorr=0;
 		}
-		if (iscorr)
+		if (final[currstate])
 			printf ("\nSaid string is accepted\n");
 		else
 			printf ("\nSaid string is rejected\n");

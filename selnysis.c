@@ -1,3 +1,7 @@
+/*Selection Sort Analyzer
+Coded by the man himself, Sriram Ramaswamy
+In: GCC running in Kali Linux running in a VMWare Workstation Pro
+On: 31-Mar-2016, 10:48 PM*/
 #include <stdio.h>
 #include <time.h>
 
@@ -5,10 +9,7 @@ void main()
 {
 	int a[200000], n=20000, pos, i, j, min;
 	clock_t start, end, total;
-//	printf ("\nEnter size of array\t");
-//	scanf ("%d", &n);
-//	printf ("\nEnter array\n");
-	while (n<200000)
+	while (n<=200000)
 	{
 		for (i=0;i<n;i++)
 			a[i]=rand();
@@ -31,7 +32,5 @@ void main()
 		printf ("\nThe time taken is %ld for %d elements\n", total, n);
 		n+=20000;
 	}
-//	for (i=0;i<n;i++)
-//		printf ("%d\t", a[i]);
 }
 

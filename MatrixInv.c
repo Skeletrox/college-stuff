@@ -6,6 +6,7 @@ Anyway, here she is. The first step before I end up coding my assignment: Genera
 Coded by: The man himself, Sriram Ramaswamy
 In: CodeBlocks IDE running in Windows 10
 On: 31 March 2016, 1825 hrs
+Update: Changed defunct logic that checks for singularity of the matrix
 */
 
 #include <stdio.h>
@@ -30,12 +31,12 @@ void main()
     for (i=0;i<n;i++)   
     {
        //We're performing row operations for each row
-        if (matrix[i][j]==0)            //If a diagonal element becomes 0 in the process: Goodbye!
+        setval = matrix[i][i];
+        if (setval==0)
         {
-            printf ("\nSingular matrix\n");
+            printf ("\nSingular Matrix\n");
             exit(0);
         }
-        setval = matrix[i][i];
         for (j=0;j<n;j++)   //We're currently editing the values in the same row as the element
         {
 
